@@ -1,0 +1,18 @@
+<!--div *ngIf="tit">{{tit}}</div-->
+{{title ? title + '<br>' : ''}}
+<input [(ngModel)]="a">
+<br>
+<input [(ngModel)]="b">
+
+{{somma()}}
+
+
+<div style='margin-top:20px'>
+  <input #n1 (input)="somma2(n1.value, n2.value)">
+  <br>
+  <input #n2 (input)="somma2(n1.value, n2.value)">
+  {{risultato}}
+</div>
+
+
+

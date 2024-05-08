@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <style>
+
+    a {
+      text-decoration: none;
+      color: #898989;
+    }
+
+    .form-container {
+      height: 470px;
+      min-width: 150px;
+      max-width: 500px;
+      width: 85%;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid lightgrey;
+      border-radius: 15px;
+      padding: 170px 20px 20px 20px;
+    }
+
+
+    .email,
+    .password {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .googlesignin {
+      top: 80px;
+      position: relative;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 6px 0px 20px 0px;
+      width: 100%;
+      height: 50px;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #bfbfbf;
+      left: -2px;
+    }
+
+    @media only screen and (max-height: 820px) {
+      .form-container {
+        top: 46%;
+      }
+    }
+
+    @media only screen and (max-height: 770px) {
+      .form-container {
+        top: 48%;
+      }
+    }
+
+    @media only screen and (max-height: 710px) {
+      .form-container {
+        top: 51%;
+      }
+    }
+
+    @media only screen and (max-height: 680px) {
+      .form-container {
+        padding: 144px 20px 20px 20px;
+        top: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <form class="form-container">
+
+    <!-->mat-icon>lock</mat-icon-->
+
+    <h1 style="margin-top: -120px; margin-bottom: 70px; color: #6c6c6c;">Log in</h1>
+
+    <mat-divider style="margin-top: -40px; margin-bottom: 60px;"></mat-divider>
+
+    <!--Email-->
+    <mat-form-field class="email">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" name="email">
+    </mat-form-field>
+
+
+    <!--Password-->
+    <mat-form-field class="password">
+      <mat-label>Password</mat-label>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <input matInput [(ngModel)]="password" name="password" type="password" [type]="hide ? 'password' : 'text'">
+    </mat-form-field>
+
+    <!--Button-->
+    <button mat-raised-button style="margin-top: 30px; width: 100%;" (click)="login()">Log in</button>
+
+    <a style="top: 40px; position: relative;" href="/forgot-password">Forgot password?</a>
+    <p style="top: 40px; position: relative; color: #898989;">Don't have an account? <a href="/register"> Sign in</a></p>
+
+    <!--sign in with Google-->
+    <button (click)="signInWithGoogle()" class="googlesignin" mat-button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" height="24" style=" top: 6px; left: -10px; position: relative;"/>Sign in with Google
+    </button>
+
+
+  </form>
+</body>
+</html>
